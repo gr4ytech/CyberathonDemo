@@ -71,7 +71,7 @@ if (process.env.NODE_ENV !== 'production') {
   })
   
   function authorized(req, res, next) {
-    if (req.isAuthorized()) {
+    if (req.isAuthenticated()) {
       return next()
     }
   
@@ -79,7 +79,7 @@ if (process.env.NODE_ENV !== 'production') {
   }
   
   function notAuthorized(req, res, next) {
-    if (req.isAuthorized()) {
+    if (req.isAuthenticated()) {
       return res.redirect('/')
     }
     next()
